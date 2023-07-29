@@ -1,13 +1,20 @@
+name: Sync Bucket
 version: 0.2
+on:
+  push:
+    branches: development
 env:
   variables:
-    S3_BUCKET: "3clogic-synergy1"
+    S3_BUCKET: "3clogic-synergy"
     BUILD_FOLDER: "dist"
-phases:
-  install:
-    runtime-versions:
-      nodejs: 16
-  pre_build:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+    pre_build:
     commands:
       - echo Installing source NPM dependencies.....
       - npm install
