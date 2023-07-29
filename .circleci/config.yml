@@ -42,7 +42,7 @@ jobs:
               aws s3 sync dist/angular-material-starter/ s3://angular-material-starter-bucket/ --delete --exact-timestamps;
             fi
   deployQA:
-   working_directory: ~/repo
+    working_directory: ~/repo
     docker:
       - image: circleci/node:16.13.1-browsers
     steps:
