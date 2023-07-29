@@ -81,6 +81,7 @@ workflows:
               only:
                 - development
       - deployQA:
+          type: approval
           filters:
             branches:
               only:
